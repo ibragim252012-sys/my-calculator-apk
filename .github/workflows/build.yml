@@ -1,11 +1,11 @@
 name: Build Flet APK
 
 on:
-  workflow_dispatch:  # Сборка запускается только когда ты сам нажмёшь кнопку
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Linux-сервер (быстро и бесплатно)
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -25,6 +25,7 @@ jobs:
         run: flet build apk
         env:
           FLUTTER_VERSION: "3.41.7"
+          FLET_AUTO_ACCEPT: "true"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
